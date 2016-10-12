@@ -1,0 +1,339 @@
+<home-header></home-header>
+
+<!--<script type="text/javascript" src="/assets/js/home.js"></script>
+
+<div class="jumbotron">
+  <div class="container">
+    <div id="call-to-action" ng-class="{forward: vm.direction, backward: !vm.direction}">
+      <div id="form-views" class="view-animate" ui-view></div>
+    </div>
+
+    <div id="companies">
+      <img src="/images/bank-logos/realty-executives.png" alt="Realty Executives" />
+      <img src="/images/bank-logos/berkshire-hathaway_hplogo.png" alt="Berkshire Hathaway" />
+      <img src="/images/bank-logos/windermere.png" alt="Windermere Real Estate" />
+      <img src="/images/bank-logos/coldwell-banker.png" alt="Coldwell Banker" />
+      <img src="/images/bank-logos/keller-williams.png" alt="Keller Williams" />
+      <img src="/images/bank-logos/remax.png" alt="Re/Max" />
+      <img src="/images/bank-logos/century-21.png" alt="Century 21" />
+    </div>
+  </div>
+</div>
+
+<section>
+  <div id="features">
+    <div class="feature">
+      <img src="/images/feature1.png" alt="" />
+      <div class="hdr">We are REALLY good at this!</div>
+      <div class="info">
+        We connect thousands
+        of home buyers and
+        sellers to real estate
+        agents every single month. It´s what we do best!
+      </div>
+    </div>
+    <div class="feature">
+      <img src="/images/feature2.png" alt="" />
+      <div class="hdr">Fast and hassle-free</div>
+      <div class="info">
+        We do the research so
+        you don´t have to. We´ll
+        connect you with a top
+        agent in your market
+        within minutes.
+      </div>
+    </div>
+    <div class="feature">
+      <img src="/images/feature3.png" alt="" />
+      <div class="hdr">100% free, no obligation</div>
+      <div class="info">
+        Our service is 100% free
+        to use. Even our phone
+        consultations are 100%
+        free and there are no hidden
+        costs or fees, ever.
+      </div>
+    </div>
+    <div class="feature">
+      <img src="/images/feature4.png" alt="" />
+      <div class="hdr">A+ Rated</div>
+      <div class="info">
+        We are independently rated and reviewed, with
+        A+ BBB and Google ratings and hundreds of reviews. Let´s just say our clients love us.
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</section>
+
+<section id="comments">
+  <div id="top">
+    <div class="inner" ng-repeat="c in vm.comments" ng-style="{display: $index == 0 ? 'block' : 'none'}" id="{{ 'slide' + $index }}">
+      <div id="photo" ng-if="c.photo"><img ng-src="/images/commenters/{{ c.photo }}" alt="" /></div>
+      <div id="comment">
+        <div id="txt">
+          “{{ c.comment }}”
+          <div id="signature">
+            {{ c.name }}
+            <div id="city">{{ c.city }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+
+    <ul>
+      <li ng-repeat="c in vm.comments">
+        <a href ng-click="vm.showComment($index)" ng-class="{active: vm.activeSlide == $index}"></a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="bottom">
+    <div class="inner">
+      <h2>Get free personalized advice from our friendly team</h2>
+      <p>Simply enter your details below and we'll give you a call</p>
+
+      <form method="post" id="form2" name="form2" ng-submit="vm.processForm(2, form2.$valid)" ng-hide="vm.submitted">
+        <input type="text" ng-model="vm.lead.lastname" ng-disabled="vm.submitting" class="form-control" placeholder="Your full name" required="required" /> &nbsp;
+        <input type="tel" ng-model="vm.lead.phone" ng-disabled="vm.submitting" class="form-control phone" placeholder="Your phone number" ng-pattern="/\(\d{3}\)\s\d{3}\-\d{4}/" autocomplete="false" required="required" /> &nbsp;
+        <button type="submit" class="btn" ng-show="!submitting">Call me back</button>
+        <button class="btn" ng-show="vm.submitting" disabled="disabled">
+          Sending...
+          <span class="glyphicon glyphicon-refresh spin" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <div class="alert alert-success" role="alert" ng-show="vm.submitted">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> We have received your message! You'll hear from us very soon.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div id="articles">
+    <div class="summary">
+      <div class="hdr">10 Things You Need to Know When Buying a Home</div>
+      <div class="body">
+        If you are in the market to buy a home, you know it’s easier said than done. There are a few things to keep in mind and get ready for as you begin your new home search.
+      </div>
+      <div class="learn-more"><a href class="btn btn-sm" ng-click="vm.showArticle(1)">Learn More >></a></div>
+      <div id="active1" class="active"></div>
+    </div>
+
+    <div class="summary">
+      <div class="hdr">How to Hire the Most Qualified Real Estate Agent</div>
+      <div class="body">
+        Selling or buying a home is most likely one of the largest and most intricate transactions you will be involved with in your lifetime. Hiring a qualified real estate agent who can guide you through the process is absolutely essential.
+      </div>
+      <div class="learn-more"><a href class="btn btn-sm" ng-click="vm.showArticle(2)">Learn More >></a></div>
+      <div id="active2" class="active"></div>
+    </div>
+
+    <div class="summary">
+      <div class="hdr">The Best Strategy to Sell Your House Fast</div>
+      <div class="body">
+        If you are considering selling your home and you want to sell it quickly, the best strategy is to hire a local listing agent who is experienced in your market area. It is important that you do not fall for gimmicks...
+      </div>
+      <div class="learn-more"><a href class="btn btn-sm" ng-click="vm.showArticle(3)">Learn More >></a></div>
+      <div id="active3" class="active"></div>
+    </div>
+
+
+    <div class="summary">
+      <div class="hdr">The Importance of Hiring a Local Real Estate Agent In <span class="thecity"></span></div>
+      <div class="body">
+        If you live in <span class="thecity"></span> and you are looking to sell or buy a home or property, it is essential that you hire a local real estate agent. Local <span class="thecity"></span> agents will have experience with listings in your neighborhood...
+      </div>
+      <div class="learn-more"><a href class="btn btn-sm" ng-click="vm.showArticle(4)">Learn More >></a></div>
+      <div id="active4" class="active"></div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div id="article">
+    <div class="article" id="article1">
+      <div class="article-hdr">10 Things You Need to Know When Buying a Home</div>
+      <p>If you are in the market to buy a home, you know it’s easier said than done. There are a few things to keep in mind and get ready for as you begin your new home search.</p>
+
+      <p>Here are a few:</p>
+
+      <ol>
+        <li>
+          <b>Hire a real estate agent in the area</b><br />
+          The first step is to find a local agent who is familiar with the market you are interested in. This alone can be a process, so make sure you are well informed, you know what to ask and you find someone who is experienced and you can trust.
+        </li>
+        <li>
+          <b>Know What You Are Looking for</b><br />
+          This is very important. There are a lot of options out there and you must narrow the search by making a list of what your ideal home would be like. We recommend that you jot down the requirements. What are your must-haves? And then, what are you willing to compromise on and let go of. The best way to do this is to list each item you must have in your new home by priority. Then, of course, communicate those needs to your real estate agent.
+        </li>
+        <li>
+          <b>Consider the Costs of Homeownership</b><br />
+          Owning a home or even a condo costs more than just the mortgage payment so budget accordingly. In addition to your monthly payments, consider the utilities, homeowners insurance, and Home Owner’s Association (HOA) fees, if any. What about transportation and cost of living in your new neighborhood? And of course, always plan on some upgrades, repairs and necessary maintenance such as lawn mowing, pool cleaning and the like.
+        </li>
+        <li>
+          <b>Location Is Important</b><br />
+          A home is only as worth as much as it’s neighborhood. So be sure that you purchase a home in a neighborhood you like to live in. Again, make a list. What kind of neighborhood would you like? If you have children, having a school nearby is probably very important to you. How far are you willing to commute to and from work? And what is the overall feel of your ideal community? Communicate these desires to your agent and spend some time in these areas to make sure this is where you can imagine yourself living.
+        </li>
+        <li>
+          <b>Know Your Loans and Financing Options</b><br />
+          Let’s face it, every home loan advertisement looks great on paper. But what is the fine print? Make sure you know your interest rates, down payment requirements and penalties. Your local real estate agent will go over these with you, but don’t be afraid to ask if something is not clear. Also, don’t be afraid to shop around and turn down loan offers that seem troubling or confusing at best.
+        </li>
+        <li>
+          <b>Obtain Full Home Disclosure and Inspection</b><br />
+          By law, the home seller is obligated to disclose any problems with the home or condo that you are buying. However, there may be additional costly repairs and foundation problems that the current owner is not familiar with. So, in addition to getting a report on potential problems, be sure to have your agent hire a home inspector who will come out to inspect the home. In most cases, you will have to pay for the inspection but sometimes the seller will agree to cover the costs. Don’t skip this step; you don’t want to buy a home that may potentially cost you thousands of dollars in additional repairs.
+        </li>
+        <li>
+          <b>Get Everything in Writing</b><br />
+          Real estate jargon can be confusing. Get it all in writing and if you don’t understand something, make sure to ask your real estate agent. To buy a home, it is imperative that you collect each piece of information and the overall transaction in writing so that you are covered in case something goes wrong.
+        </li>
+        <li>
+          <b>Take These Steps Before “Closing”</b><br />
+          Before your purchase is final, make sure that you are able to purchase home insurance. In addition, consider purchasing a home warranty, if it’s not included in the transaction. And finally, be sure the home is in the same condition as it was when you initially agreed to buy.
+        </li>
+        <li>
+          <b>Remember Property Taxes</b><br />
+          Don’t forget that you’ll have to pay property taxes in addition to your regular mortgage payment. Make sure you work this out with your real estate agent and hire an accountant or financial adviser to assist you in understanding this obligation. Owning a home will also qualify you for certain tax deductions. It is important that you take advantage of them each year.
+        </li>
+        <li>
+          <b>Get Excited</b><br />
+          Most importantly, get excited. You will now be a proud homeowner and this is a big accomplishment. A place to call your own!
+        </li>
+      </ol>
+      <p>
+        The first step to buying your home is to find a local real estate agent in your area to help you. MyAgentFinder only works with the best real estate agents in each city.
+        Let us help you find your real estate agent today.
+      </p>
+    </div>
+
+    <div class="article" id="article2">
+      <div class="article-hdr">How to Hire the Most Qualified Real Estate Agent</div>
+      <p>
+        Selling or buying a home is most likely one of the largest and most intricate transactions you will be involved with in your lifetime. Hiring a qualified real estate agent who can guide you through the process is absolutely essential. Qualified agents posses the experience and knowledge that is vital to the success of your transaction. A agent can advise you, guide you, provide all of the necessary paperwork and materials, as well as ensure that the process of buying or selling a home is completed lawfully, quickly and with ease.
+      </p>
+      <p>
+        There are a lot of real estate agents out there with varying levels of experience and expertise. You want to make sure you get the best real estate agent you can. Hiring a qualified real estate agent can be tricky. The first step in the entire process is to ensure that you are working with someone who is experienced, competent and sensitive to your needs.
+      </p>
+      <p>
+        Here are some tips on what to look for when hiring a qualified agent:
+      </p>
+
+      <ul>
+        <li>
+          <b>Get a referral from a trusted industry leader</b><br />
+          The best way to find a qualified agent is to be referred to one by someone you trust. MyAgentFinder has a perfect rating with the BBB and has thousands of satisfied home sellers and buyers. We work hard to match you with the perfect real estate agent that knows your local area and has the experience, knowledge and tenacity to get you the best deal possible.
+        </li>
+        <li>
+          <b>Spend Time with Your Potential Real Estate Agent</b><br />
+          MyAgentFinder is going to match you with the agent that we think is the best match. But it’s still very important that you feel comfortable with and confident in your agent. Sit down with them before signing anything and discuss exactly what you are looking for in a real estate agent and what you expect out of the transaction.
+          <br /><br />
+          This will give you more insight into the agent’s experience in handling transactions that are similar to yours. More importantly, this time will be very beneficial in determining whether your potential agent is a good match for you in terms of their personality and work ethic. Ask yourself, what does your gut tell you about this person after speaking to them for the first time? Do they appear to be trustworthy?
+          <br /><br />
+          If there are any red flags or you don’t feel completely confident in this agent’s ability to get you the maximum value in a deal, just contact us and we’ll connect you with another top agent in your area that may be a better fit.
+        </li>
+        <li>
+          <b>Explore Your Agent’s Own Success</b><br />
+          A agent’s success will be directly related to yours. If they are successful, knowledgeable and know how to market themselves well, chances are, they will utilize these same skills to sell your home and/or help you buy a home. Look them up online, explore their website as well as their marketing tactics and overall presence in the community. If they are successful, you will be too.
+        </li>
+        <li>
+          <b>Communicate and Ask Questions</b><br />
+          Selling or buying a property will require you to sign a lot of agreements, contracts and consent forms. Be sure that your agent is familiar with all of the necessary paperwork and has the patience to explain and disclose all of the information found in the various forms that you will most likely not be familiar with. Ask questions. Ask about the different forms you will have to sign upfront so you know what to expect. Once you receive the paperwork make sure you read everything before signing and get clarification on specifics that you may be confused about. Ask, answer and communicate. Your real estate agent is your partner in crime so to speak; so don’t be afraid to talk to them about anything that comes up.
+        </li>
+        <li>
+          <b>Does Your Agent Have Access to the MLS?</b><br />
+          The Multiple Listing Service (MLS) is the nationwide database of homes on the market. It is extremely beneficial to have access to this information as well as have your agent list your house for sale on MLS. If the agent is only marketing your property on his/her website, this will most likely not do you a whole lot of good. The MLS is essential and any certified real estate agent you would consider hiring will have access to the MLS.
+        </li>
+      </ul>
+      <p>
+        These are just a few factors to keep in mind when looking for a qualified real estate agent. Get started now by filling in your information on the form and we’ll match you with a top real estate agent in your area.
+      </p>
+    </div>
+
+    <div class="article" id="article3">
+      <div class="article-hdr">The Best Strategy to Sell Your House Fast</div>
+      <p>
+        If you are considering selling your home and you want to sell it quickly, the best strategy is to hire a local listing agent who is experienced in your market area. It is important that you do not fall for gimmicks, including various companies that will take the home off your hands for next to nothing. Rest assured that you have options and that there are strategies to sell your house quickly without giving up value. It’s key that you team up with a successful real estate agent or broker to give you the best possible advice during this process.
+      </p>
+      <p>
+        Homeowners are often talked into selling their homes on their own, thinking that bypassing the process of hiring a listing agent or a broker will save them time and money. But in reality, it’s the opposite.
+      </p>
+      <p>
+        If you want to sell your house fast and for the highest price possible, here are a number of useful tips:
+      </p>
+
+      <ul>
+        <li>
+          Find the listing agent with the most experience selling homes in your area. MyAgentFinder has a database of 20,000 of the top agents throughout the country. We only work with the best and their stats are listed on their profile pages.
+        </li>
+        <li>
+          Connect with your listing agent of choice and let them know you want to sell your house quickly and want to discuss your options. You can contact the agent directly through their profile page on MyAgentFinder.com or you can fill out the form on this page and we’ll match you with the agent that has the best track record of listing and selling homes in your local area.
+        </li>
+        <li>
+          Research the home prices in your area so that you are well informed on what your home is worth well before you list it for sale. Your agent will recommend a listing price and if your goal is to sell your house quickly, it may be lower than it would be otherwise. Make sure you’re informed and then listen to your agent and lean on their industry knowledge and expertise.
+        </li>
+        </ul>
+        <p>
+          Hiring a listing agent will, in fact, save you time and money. A listing agent is knowledgeable and can act quickly. He or she is also familiar with your market area and can help evaluate your home as well as get the necessary professionals involved, such as an appraisers and escrow officers.
+        </p>
+        <p>
+          In fact, he or she may already have a pool of qualified buyers who are interested in purchasing a home in your neighborhood, which can further speed up the process of selling your home fast.
+        </p>
+        <p>
+          In addition, your listing agent will advise you on how best to stage your home, hold open house events for you and help fill out all of the necessary paperwork that you will not be familiar with.
+        </p>
+        <p>
+          Another important aspect of selling your home fast is how it is presented to the potential homebuyer. Here is a short list of what to keep in mind when preparing your home for a fast and easy sale:
+        </p>
+        <ul>
+        <li>
+          Enhance curb appeal – tidy up the outside of your home and lawn so that it’s appealing to buyers at first glance.
+        </li>
+        <li>
+          Make it welcoming – add a welcome home doormat, keep the door open and the hallways neat and free of clutter.
+        </li>
+        <li>
+          Keep it clean – clear all the clutter and get it sparkling clean and smelling good. You want potential buyers to see themselves in the home as soon as they walk in.
+        </li>
+        <li>
+          Upgrade but don’t overdo it – do some necessary repairs and upgrades, but don’t overdo it. Leave some work for potential buyers. They are going to have their own tastes and needs and you don’t want to put your money into an upgrade the buyer is going to change anyway.
+        </li>
+        <li>
+          Listen to your listing agent – he or she knows what need to be done to sell a home fast, so listen to their advice and instructions.
+        </li>
+      </ul>
+      <p>
+        When looking for a real estate agent to help you sell your home fast you want someone with a network of buyers ready to go. That’s going to be an experienced, knowledgeable agent who has done dozens or even hundreds of transactions before. You can browse the listings at MyAgentFinder.com to find one of the top agents in your area that will know how to sell your home fast. Or let us choose an agent for you. Fill out our contact form today and we’ll match you with the best local agent that can sell your home as quickly as possible while also getting you the highest price.
+      </p>
+    </div>
+
+    <div class="article" id="article4">
+      <div class="article-hdr">The Importance of Hiring a Local Real Estate Agent in <span class="thecity"></span></div>
+      <p>
+        If you live in <span class="thecity"></span> and you are looking to sell or buy a home or property, it is essential that you hire a local real estate agent. Local <span class="thecity"></span> agents will have experience with listings in your neighborhood and will offer you the expertise you need when buying or selling a home.
+      </p>
+      <p>
+        Your <span class="thecity"></span> real estate agent will be able to give you the most accurate value of a property regardless of whether you are selling or buying. Often, he or she will have dealt with dozens of properties in the area, thereby, bringing specific market experience to the transaction.
+      </p>
+      <p>
+        In addition, your <span class="thecity"></span> real estate agent will be familiar with other local professionals who you may need to complete the transaction. For example, your agent can refer you to an appraiser, contractor, mortgage banker or escrow officer. You will need these professionals to complete your transaction of selling or buying a home in <span class="thecity"></span> and your <span class="thecity"></span> real estate agent is an excellent source for establishing these contacts.
+      </p>
+      <p>
+        <span class="thecity"></span> agents are also familiar with local housing laws and will help you close the transaction smoothly, with the most lawful and appropriate contracts, disclosure agreements and the like. He or She will also be able to clarify any industry jargon that you may not understand.
+      </p>
+      <p>
+        Your agent will have access to hundreds of homes that he or she can show you. It is important to connect with an agent who is very familiar with properties in the specific neighborhoods you are interested in. Once you outline your desires and specifications, your <span class="thecity"></span> real estate agent will be able to show you the most qualified homes that fit within your vision of where you would like to live.
+      </p>
+      <p>
+        Likewise, if you are selling a home in <span class="thecity"></span>, you should hire one of many <span class="thecity"></span> agents to help you. He or she may already have buyers who may be interested in purchasing a property in your neighborhood. Furthermore, your <span class="thecity"></span> real estate agent will be able to use the Multiple Listing Service (MLS) and other property listing systems to advertise your home or condo for sale to other potential buyers. All of this will increase your chances of selling your property fast.
+      </p>
+      <p>
+        The first and the most important step for both <span class="thecity"></span> homebuyers and sellers is to connect with a local real estate expert. <span class="thecity"></span> is home to countless agents, so be sure that you select someone who has the experience you need to get the best deal. MyAgentFinder only works with the top agents in <span class="thecity"></span> and will be with you every step of the way to ensure you have the best possible representation in your real estate transaction.
+      </p>
+    </div>
+  </div>
+</section>
+
+-->
+
+<home-footer></home-footer>
